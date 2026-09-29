@@ -20,3 +20,18 @@ Una API REST (*Representational State Transfer*) es un conjunto de reglas y prot
 | **PUT** | Update (Actualizar) | Reemplaza por completo un recurso existente o lo crea si no existe, enviando todos sus campos. |
 | **PATCH** | Update (Actualizar / Modificar) | Modifica parcialmente un recurso, actualizando únicamente los campos que se envían en la petición. |
 | **DELETE** | Delete (Borrar) | Elimina un recurso específico del servidor. |
+
+
+## Códigos de estado
+
+Las respuestas HTTP se agrupan en cinco grandes familias según el resultado de la solicitud:
+* **1xx (Informational / Informativas):** Indican que la petición fue recibida y el proceso continúa (ejemplo: `100 Continue`).
+* **2xx (Successful / Éxito):** Indican que la acción fue recibida, comprendida y aceptada exitosamente (ejemplo: `200 OK` o `201 Created`).
+* **3xx (Redirection / Redirección):** Indican que se deben tomar acciones adicionales para completar la solicitud, generalmente redirigiendo a otra URL (ejemplo: `301 Moved Permanently`).
+* **4xx (Client Error / Errores del cliente):** Indican que hubo un error en la solicitud enviada, por parte de quien consume la API (ejemplo: `404 Not Found` cuando el recurso no existe o `400 Bad Request` por datos mal formados).
+* **5xx (Server Error / Errores del servidor):** Indican que el servidor falló al intentar procesar una solicitud que en apariencia era válida (ejemplo: `500 Internal Server Error`).
+
+#### ¿Por qué se separan los errores 4xx de los 5xx? ¿Quién tiene la culpa?
+Se separan principalmente para identificar **de quién es la responsabilidad o la "culpa" del fallo**:
+* Con los errores **4xx**, la culpa es del **cliente** (la persona o aplicación que hace la petición). Ocurre porque se envió una URL incorrecta, faltan datos obligatorios, no hay autorización o se pide algo que no existe.
+* Con los errores **5xx**, la culpa es del **servidor**. El cliente hizo todo bien, pero el servidor falló internamente (se cayó la base de datos, hubo un fallo en el código del backend o el servidor se quedó sin recursos).
