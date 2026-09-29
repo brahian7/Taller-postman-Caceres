@@ -10,3 +10,13 @@ Una API REST (*Representational State Transfer*) es un conjunto de reglas y prot
 * **Ejemplo cotidiano:** Una aplicación que usamos a diario y que depende fuertemente de APIs es **Spotify**. Cuando buscas una canción en la app de tu teléfono (el cliente), la aplicación realiza una petición a los servidores de Spotify a través de un endpoint para solicitar los datos de la canción, el artista y la carátula, trayendo la información en tiempo real para que puedas reproducirla.
 
 **Fuente consultada:** Red Hat - ¿Qué es una API REST? (https://www.redhat.com/es/topics/api/what-is-a-rest-api)
+
+## Métodos HTTP
+
+| Método | Operación CRUD | Qué hace |
+| :--- | :--- | :--- |
+| **GET** | Read (Leer) | Solicita y recupera información o recursos de un servidor sin alterar su estado. |
+| **POST** | Create (Crear) | Envía datos nuevos al servidor para la creación de un nuevo recurso. |
+| **PUT** | Update (Actualizar) | Reemplaza por completo un recurso existente o lo crea si no existe, enviando todos sus campos. |
+| **PATCH** | Update (Actualizar / Modificar) | Modifica parcialmente un recurso, actualizando únicamente los campos que se envían en la petición. |
+| **DELETE** | Delete (Borrar) | Elimina un recurso específico del servidor. |
