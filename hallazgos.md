@@ -41,3 +41,10 @@
 * **Ruta anidada probada:** `https://jsonplaceholder.typicode.com/posts/1/comments`
   * **¿Qué encontré?** Devuelve todos los comentarios específicos que pertenecen únicamente a la publicación con ID `1`.
   * **¿Cómo deduje la estructura?** Siguiendo la arquitectura REST estándar de relaciones jerárquicas (*recursos padre / recursos hijo*), donde un recurso contenedor (`/posts/1`) se conecta de forma lógica con sus elementos dependientes (`/comments`).
+
+  ## Pruebas automáticas personalizadas (Tareas 12 y 13)
+Se implementaron scripts de prueba (*Test Scripts*) en la pestaña de pruebas de Postman utilizando funciones de aserción (`pm.test` y `pm.expect`) para validar criterios de aceptación automáticos:
+1. **Estado HTTP 200 OK:** Validación de éxito en la transacción.
+2. **Rendimiento:** Verificación de tiempos de respuesta óptimos (< 500 ms).
+3. **Integridad del esquema:** Comprobación de que el payload JSON contiene las propiedades esperadas (`title`).
+4. **Validación de Cabeceras:** Confirmación del tipo MIME correcto (`application/json`).
