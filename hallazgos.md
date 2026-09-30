@@ -21,3 +21,15 @@
 * **¿Cómo comprobarías, en una API real, que el recurso se creó de verdad?** En una API real con persistencia en base de datos, se comprobaría realizando una petición `GET` utilizando el ID devuelto en la respuesta (por ejemplo, `GET /posts/101`) para verificar que el recurso ya existe y contiene los datos enviados, o consultando directamente la base de datos del sistema.
 
 ¿Qué diferencia encontraste entre ambas respuestas? PUT reemplaza o sobreescribe todo el recurso por completo, por lo que si omites algún campo (como el body o el userId), este puede perderse o quedar vacío en el servidor. En cambio, PATCH realiza una actualización parcial, modificando únicamente el campo que se envió en la petición (title) y conservando intactos los demás campos originales del recurso.
+
+## Idempotencia (Tarea 8)
+* **¿Qué es la idempotencia?** Es una propiedad del diseño de software y de las APIs que indica que realizar una o varias solicitudes idénticas produce exactamente el mismo efecto secundario en el servidor, sin alterar el estado más allá de la primera llamada.
+* **Clasificación de los métodos HTTP probados:**
+  * **Idempotentes:** `GET`, `PUT`, `DELETE` (Ejecutar un `PUT` o `DELETE` varias veces sobre el mismo recurso no cambia el estado del servidor tras la primera ejecución exitosa).
+
+
+## Límites de la API (Tarea 10)
+* **ID más alto que devuelve 200:** `100` (En JSONPlaceholder existen exactamente 100 publicaciones).
+* **Primer ID que devuelve 404:** `101` (A partir de este valor, la API no encuentra el recurso y responde con error de cliente).
+* **¿Cómo se llama ese tipo de caso de prueba?** Se denominan **Casos de prueba de valores límite** (*Boundary Value Analysis*), una técnica de caja negra donde se prueban los extremos o fronteras de los rangos de entrada válidos e inválidos.
+* **¿Por qué se dice que los defectos se concentran ahí?** Porque estadísticamente es donde más fallan los desarrolladores al programar las validaciones lógicas (por ejemplo, confundir un operador menor que `<` con un menor o igual `<=`), generando errores de desbordamiento o fallas de lógica en los límites del sistema.
