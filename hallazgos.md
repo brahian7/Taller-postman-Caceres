@@ -33,3 +33,11 @@
 * **Primer ID que devuelve 404:** `101` (A partir de este valor, la API no encuentra el recurso y responde con error de cliente).
 * **¿Cómo se llama ese tipo de caso de prueba?** Se denominan **Casos de prueba de valores límite** (*Boundary Value Analysis*), una técnica de caja negra donde se prueban los extremos o fronteras de los rangos de entrada válidos e inválidos.
 * **¿Por qué se dice que los defectos se concentran ahí?** Porque estadísticamente es donde más fallan los desarrolladores al programar las validaciones lógicas (por ejemplo, confundir un operador menor que `<` con un menor o igual `<=`), generando errores de desbordamiento o fallas de lógica en los límites del sistema.
+
+## Exploración de otros recursos y rutas anidadas (Tarea 11)
+* **Recursos adicionales probados:**
+  * `/users`: Devuelve una lista con 10 usuarios registrados en la plataforma.
+  * `/todos`: Devuelve una lista de tareas pendientes (*To-Dos*) con estados booleanos (`completed: true/false`).
+* **Ruta anidada probada:** `https://jsonplaceholder.typicode.com/posts/1/comments`
+  * **¿Qué encontré?** Devuelve todos los comentarios específicos que pertenecen únicamente a la publicación con ID `1`.
+  * **¿Cómo deduje la estructura?** Siguiendo la arquitectura REST estándar de relaciones jerárquicas (*recursos padre / recursos hijo*), donde un recurso contenedor (`/posts/1`) se conecta de forma lógica con sus elementos dependientes (`/comments`).
